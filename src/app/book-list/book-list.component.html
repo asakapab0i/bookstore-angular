@@ -1,6 +1,7 @@
-<div class=" my-5">
-  <div class="">
-    <table class="table table-bordered table-striped">
+<div class="card my-5">
+  <div class="card-body">
+    <input [(ngModel)]="searchText" type="text" name="search" class="form-control ds-input" id="search-input" placeholder="Search..." aria-label="Search for..." autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0" dir="auto" style="position: relative; vertical-align: top;">
+    <table class="table table-bordered table-striped mt-2">
       <thead class="thead-dark">
         <tr>
           <th scope="col">#</th>
@@ -9,7 +10,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let book of books">
+        <tr *ngFor="let book of books | filter:searchText">
           <td>{{ book.id }}</td>
           <td>{{ book.title }}</td>
           <td>{{ book.description }}</td>
