@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { BookService } from '../service/book.service';
 import { Book } from '../model/book';
 import { Author } from '../model/author';
