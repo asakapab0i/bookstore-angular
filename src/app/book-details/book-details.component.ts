@@ -23,7 +23,6 @@ export class BookDetailsComponent implements OnInit {
     private location: Location) { }
 
   ngOnInit() {
-
     this.route.params.forEach((params: Params) => {
       if (params.id !== undefined) {
         const id = +params.id;

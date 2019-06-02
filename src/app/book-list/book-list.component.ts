@@ -15,12 +15,24 @@ export class BookListComponent implements OnInit {
   constructor(private bookService: BookService) { }
 
   ngOnInit() {
+    this.getAllBooks();
+  }
+
+  doSearch(search: string) {
+    if (search === '') {
+      this.getAllBooks();
+    } else {
+      return this.searchBooks(search);
+    }
+  }
+
+  getAllBooks(){
     this.bookService.findAll().subscribe(data => {
       this.books = data;
     });
   }
 
-  doSearch(search: string) {
+  searchBooks(search: string){
     this.bookService.search(search).subscribe(data => {
       this.books = data;
     });
