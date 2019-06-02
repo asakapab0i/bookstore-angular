@@ -11,7 +11,9 @@ Some of the features include books, authors and categories.
 ![Categories](Categories.png)
 
 ## Improvements
+
 Part of the v2 improvements are the following:
+
 - Upload file
 - Easy way of adding books
 - Tags
