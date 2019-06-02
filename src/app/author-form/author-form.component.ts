@@ -28,7 +28,6 @@ export class AuthorFormComponent implements OnInit {
   }
 
   saveAuthor() {
-    console.log(this.author);
     this.authorService.save(this.author).subscribe(result => this.gotoAuthorList());
   }
 

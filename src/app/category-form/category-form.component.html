@@ -1,0 +1,14 @@
+<div class="card">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #categoryForm="ngForm">
+        <div class="form-group">
+          <label for="category">Category</label>
+          <input type="text" [(ngModel)]="category1.category"
+            class="form-control" id="category" name="category" placeholder="Enter category"
+            required #category="ngModel">
+        </div>
+        <div [hidden]="!category.pristine" class="alert alert-danger">Category is required</div>
+        <button type="submit" [disabled]="!categoryForm.form.valid" class="btn btn-warning">Submit</button>
+      </form>
+    </div>
+  </div>

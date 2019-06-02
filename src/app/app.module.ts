@@ -14,6 +14,7 @@ import { AuthorDetailsComponent } from './author-details/author-details.componen
 import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryDetailsComponent } from './category-details/category-details.component';
 import { AuthorFormComponent } from './author-form/author-form.component';
+import { CategoryFormComponent } from './category-form/category-form.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AuthorFormComponent } from './author-form/author-form.component';
     AuthorDetailsComponent,
     CategoryListComponent,
     CategoryDetailsComponent,
-    AuthorFormComponent
+    AuthorFormComponent,
+    CategoryFormComponent
   ],
   imports: [
     BrowserModule,
