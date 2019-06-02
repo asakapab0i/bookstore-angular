@@ -24,15 +24,15 @@ export class BookService {
     return this.http.get<Book[]>(this.booksUrl);
   }
 
-  public save(book: Book){
+  public save(book: Book) {
     return this.http.post<Book>(this.bookAddUrl, book);
   }
 
-  public search(term: string) {
+  public search(term: string): Observable<Book[]> {
     return this.http.get<Book[]>(this.bookSearchUrl + term);
   }
 
-  public findById(id: number){
+  public findById(id: number): Observable<Book[]> {
     return this.http.get<Book[]>(this.bookUrl + id);
   }
 }

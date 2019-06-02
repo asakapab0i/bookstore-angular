@@ -1,13 +1,15 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <div class="card bg-dark my-5">
-        <div class="card-body">
-          <h2 class="card-title text-center text-white py-3">{{ title }}</h2>
-          <ul class="text-center list-inline py-3">
-            <li class="list-inline-item"><a routerLink="/books" class="btn btn-warning">List Books</a></li>
-            <li class="list-inline-item"><a routerLink="/book" class="btn btn-warning">Add Book</a></li>
-          </ul>
+      <div class="card-deck">
+        <div class="card bg-dark my-3">
+          <div class="card-body">
+            <h2 class="card-title text-center text-white py-3">{{ title }}</h2>
+            <ul class="text-center list-inline py-3">
+              <li class="list-inline-item"><a routerLink="/books" class="btn btn-warning">List Books</a></li>
+              <li class="list-inline-item"><a routerLink="/book" class="btn btn-warning">Add Book</a></li>
+            </ul>
+          </div>
         </div>
       </div>
       <router-outlet></router-outlet>

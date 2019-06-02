@@ -20,4 +20,10 @@ export class BookListComponent implements OnInit {
     });
   }
 
+  doSearch(term: string){
+    this.bookService.search(term).subscribe(data => {
+      this.books = data;
+    });
+  }
+
 }

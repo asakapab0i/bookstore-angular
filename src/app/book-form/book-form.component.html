@@ -1,4 +1,4 @@
-<div class="card my-5">
+<div class="card my-3">
   <div class="card-body">
     <form (ngSubmit)="onSubmit()" #bookForm="ngForm">
       <div class="form-group">
@@ -24,7 +24,7 @@
           required #description="ngModel"></textarea>
       </div>
       <div [hidden]="!description.pristine" class="alert alert-danger">Description is required</div>
-      <button type="submit" [disabled]="!bookForm.form.valid" class="btn btn-info">Submit</button>
+      <button type="submit" [disabled]="!bookForm.form.valid" class="btn btn-warning">Submit</button>
     </form>
   </div>
 </div>
