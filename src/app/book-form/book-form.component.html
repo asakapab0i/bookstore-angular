@@ -15,6 +15,17 @@
           required #subtitle="ngModel">
       </div>
       <div [hidden]="!subtitle.pristine" class="alert alert-danger">Subtitle is required</div>
+
+      <div class="form-group">
+        <label for="author_id">Author</label>
+        <select [(ngModel)]="author" id="author" required name="author" class="form-control" #author_id="ngModel">
+            <option selected>Select author</option>
+            <option [ngValue]="author.id" *ngFor="let author of authors">
+              {{ author.first_name }} {{ author.last_name }}
+            </option>
+          </select>
+      </div>
+      <div [hidden]="!author_id.pristine" class="alert alert-danger">Author is required</div>
       <div class="form-group">
         <label for="description">Description</label>
         <textarea [(ngModel)]="book.description"

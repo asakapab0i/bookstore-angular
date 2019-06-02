@@ -8,23 +8,26 @@ import { Observable } from 'rxjs';
 })
 export class BookService {
 
+  private baseUrl: string;
   private booksUrl: string;
   private bookAddUrl: string;
   private bookSearchUrl: string;
   private bookUrl: string;
 
   constructor(private http: HttpClient) {
-    this.booksUrl = 'http://localhost:8080/book/getAllBooks';
-    this.bookAddUrl = 'http://localhost:8080/book/1/book/1/category';
-    this.bookSearchUrl = 'http://localhost:8080/book/searchBooks/';
-    this.bookUrl = 'http://localhost:8080/book/book/';
+    this.baseUrl = 'http://localhost:8080/';
+    this.booksUrl = this.baseUrl + 'book/getAllBooks';
+    this.bookAddUrl = this.baseUrl +  'book/1/book/1/category';
+    this.bookSearchUrl = this.baseUrl + 'book/searchBooks/';
+    this.bookUrl = this.baseUrl + 'book/book/';
   }
 
   public findAll(): Observable<Book[]> {
     return this.http.get<Book[]>(this.booksUrl);
   }
 
-  public save(book: Book) {
+  public save(book: Book, author: string) {
+    this.bookAddUrl = this.baseUrl + 'book/' + author + '/book/1/category';
     return this.http.post<Book>(this.bookAddUrl, book);
   }
 
