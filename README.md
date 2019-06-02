@@ -6,7 +6,7 @@ Some of the features include books, authors and categories.
 
 ## Pictures
 
-![Books](https://raw.githubusercontent.com/asakapab0i/bookstore-angular/master/Categories.PNG)
+![Books](https://raw.githubusercontent.com/asakapab0i/bookstore-angular/master/Books.PNG)
 ![Authors](https://raw.githubusercontent.com/asakapab0i/bookstore-angular/master/Authors.PNG)
 ![Categories](https://raw.githubusercontent.com/asakapab0i/bookstore-angular/master/Categories.PNG)
 
