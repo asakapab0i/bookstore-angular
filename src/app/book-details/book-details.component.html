@@ -1,11 +1,12 @@
-<div class="card">
+<div class="card" *ngIf="book">
   <div class="card-header">
     {{ book.subtitle }} by {{ getAuthorName() }}
   </div>
   <div class="card-body">
     <h5 class="card-title">{{ book.title }}</h5>
     <p class="card-text">{{ book.description }}</p>
-    <button href="" class="btn btn-sm btn-success">{{ category.category }}</button>
+    <h6>{{ book.author.first_name }} {{ book.author.last_name }}</h6>
+    <span class="badge badge-primary">{{ category.category }}</span>
   </div>
   <div class="card-footer">
     <a (click)=goBack() class="btn btn-warning"><i class="fa fa-angle-left"></i>&nbsp;&nbsp;Go Back</a>
