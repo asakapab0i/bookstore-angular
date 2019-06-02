@@ -1,3 +1,23 @@
-<p>
-  category-list works!
-</p>
+<div class="input-group mb-3">
+  <input (keyup.enter)="doSearch(search)" [(ngModel)]="search" id="search" type="text" class="form-control"
+    placeholder="Search..." autocomplete="off">
+  <div class="input-group-append">
+    <button [disabled]="!search" (click)="doSearch(search)" class="btn btn-warning" type="button">Search</button>
+  </div>
+</div>
+
+<div class="row" *ngIf="categories">
+  <div *ngFor="let category of categories" class="col-md-4 col-sm-6 mb-3">
+    <div class="card">
+      <div class="card-header">
+        {{ category.category }}
+      </div>
+      <div class="card-body">
+        {{ categories | json }}
+      </div>
+      <div class="card-footer">
+          <button routerLink="/category/{{ category.id }}" class="btn btn-sm btn-warning">View Book &nbsp;<i class="fa fa-angle-right"></i></button>
+      </div>
+    </div>
+  </div>
+</div>

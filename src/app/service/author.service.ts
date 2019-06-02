@@ -11,11 +11,13 @@ export class AuthorService {
   baseUrl: string;
   authorsUrl: string;
   authorSearchUrl: string;
+  authorAddUrl: string;
 
   constructor(private http: HttpClient) {
     this.baseUrl = 'http://localhost:8080/';
     this.authorsUrl = this.baseUrl + 'author/getAllAuthors';
     this.authorSearchUrl = this.baseUrl + 'author/search/';
+    this.authorAddUrl = this.baseUrl + 'author/author';
   }
 
   public findAll(): Observable<Author[]> {
@@ -28,5 +30,9 @@ export class AuthorService {
 
   public findById(id: number): Observable<Author> {
     return this.http.get<Author>(this.baseUrl + 'author/author/' + id);
+  }
+
+  public save(author: Author) {
+    return this.http.post<Author>(this.authorAddUrl, author);
   }
 }

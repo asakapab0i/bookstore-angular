@@ -1,0 +1,22 @@
+<div class="card">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #authorForm="ngForm">
+        <div class="form-group">
+          <label for="first_name">First Name</label>
+          <input type="text" [(ngModel)]="author.first_name"
+            class="form-control" id="first_name" name="first_name" placeholder="Enter author first name"
+            required #first_name="ngModel">
+        </div>
+        <div [hidden]="!first_name.pristine" class="alert alert-danger">First name is required</div>
+        <div class="form-group">
+          <label for="last_name">Last Name</label>
+          <input type="text" [(ngModel)]="author.last_name"
+            class="form-control" id="last_name" name="last_name" placeholder="Enter author last name"
+            required #last_name="ngModel">
+        </div>
+        <div [hidden]="!last_name.pristine" class="alert alert-danger">Last name is required</div>
+
+        <button type="submit" [disabled]="!authorForm.form.valid" class="btn btn-warning">Submit</button>
+      </form>
+    </div>
+  </div>

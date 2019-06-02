@@ -23,7 +23,6 @@ export class BookFormComponent implements OnInit {
   category: string;
 
   constructor(
-    private route: ActivatedRoute,
     private router: Router,
     private bookService: BookService,
     private authorService: AuthorService,
@@ -39,11 +38,11 @@ export class BookFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.saveBook(this.book, this.author, this.category);
+    this.saveBook();
   }
 
-  saveBook(book: Book, author: string, category: string) {
-    this.bookService.save(this.book, author, category).subscribe(result => this.gotoBookList());
+  saveBook() {
+    this.bookService.save(this.book, this.author, this.category).subscribe(result => this.gotoBookList());
   }
 
   getAuthors() {
