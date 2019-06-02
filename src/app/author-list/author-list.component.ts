@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Author } from '../model/author';
 import { AuthorService } from '../service/author.service';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-author-list',
@@ -9,13 +10,16 @@ import { AuthorService } from '../service/author.service';
 })
 export class AuthorListComponent implements OnInit {
 
-  authors: Author[]
+  authors: Author[];
   search: string;
 
-  constructor(private authorService: AuthorService) { }
+  constructor(
+    private authorService: AuthorService,
+    private appComponent: AppComponent) { }
 
   ngOnInit() {
     this.getAuthors();
+    this.updateAddButton();
   }
 
   doSearch(search: string) {
@@ -35,6 +39,13 @@ export class AuthorListComponent implements OnInit {
   searchAuthor(search: string) {
     this.authorService.search(this.search).subscribe(data => {
       this.authors = data;
+    });
+  }
+
+  updateAddButton() {
+    setTimeout(() => {
+      this.appComponent.addButtonLabel = 'Author';
+      this.appComponent.addButtonRoute = '/author';
     });
   }
 

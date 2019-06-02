@@ -3,6 +3,7 @@ import { Author } from '../model/author';
 import { AuthorService } from '../service/author.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-author-details',
@@ -16,21 +17,38 @@ export class AuthorDetailsComponent implements OnInit {
   constructor(
     private authorService: AuthorService,
     private route: ActivatedRoute,
-    private location: Location) { }
+    private location: Location,
+    private appComponent: AppComponent) { }
 
   ngOnInit() {
+    this.updateAddButton();
+    this.getParams();
+  }
+
+  getParams() {
     this.route.params.forEach((params: Params) => {
       if (params.id !== undefined) {
         const id = +params.id;
-        this.authorService.findById(id).subscribe(data => {
-          this.author = data;
-        });
+        this.getAuthorById(id);
       }
+    });
+  }
+
+  getAuthorById(id: number) {
+    this.authorService.findById(id).subscribe(data => {
+      this.author = data;
     });
   }
 
   goBack() {
     this.location.back();
+  }
+
+  updateAddButton() {
+    setTimeout(() => {
+      this.appComponent.addButtonLabel = 'Author';
+      this.appComponent.addButtonRoute = '/author';
+    });
   }
 
 }

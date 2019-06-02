@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { Book } from '../model/book';
 import { Author } from '../model/author';
 import { Category } from '../model/category';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-book-details',
@@ -20,27 +21,44 @@ export class BookDetailsComponent implements OnInit {
   constructor(
     private bookService: BookService,
     private route: ActivatedRoute,
-    private location: Location) { }
+    private location: Location,
+    private appComponent: AppComponent) { }
 
   ngOnInit() {
-    this.route.params.forEach((params: Params) => {
-      if (params.id !== undefined) {
-        const id = +params.id;
-        this.bookService.findById(id).subscribe(data => {
-          this.book = data;
-          this.author = data.author;
-          this.category = data.category;
-        });
-      }
-    });
+    this.updateAddButton();
+    this.getParam();
   }
 
   goBack() {
     this.location.back();
   }
 
+  getParam() {
+    this.route.params.forEach((params: Params) => {
+      if (params.id !== undefined) {
+        const id = +params.id;
+        this.getBookById(id);
+      }
+    });
+  }
+
+  getBookById(id: number) {
+    this.bookService.findById(id).subscribe(data => {
+      this.book = data;
+      this.author = data.author;
+      this.category = data.category;
+    });
+  }
+
   getAuthorName() {
     return this.author.first_name + ' ' + this.author.last_name;
+  }
+
+  updateAddButton() {
+    setTimeout(() => {
+      this.appComponent.addButtonLabel = 'Book';
+      this.appComponent.addButtonRoute = '/book';
+    });
   }
 
 }

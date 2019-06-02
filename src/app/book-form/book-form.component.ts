@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BookService } from '../service/book.service';
-import { Book } from '../model/book'
+import { Book } from '../model/book';
 import { Author } from '../model/author';
 import { Category } from '../model/category';
 import { AuthorService } from '../service/author.service';
 import { CategoryService } from '../service/category.service';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-book-form',
@@ -26,10 +27,12 @@ export class BookFormComponent implements OnInit {
     private router: Router,
     private bookService: BookService,
     private authorService: AuthorService,
-    private categoryService: CategoryService) {
+    private categoryService: CategoryService,
+    private appComponent: AppComponent) {
   }
 
   ngOnInit() {
+    this.updateAddButton();
     this.book = new Book();
     this.getAuthors();
     this.getCategories();
@@ -57,5 +60,12 @@ export class BookFormComponent implements OnInit {
 
   gotoBookList() {
     this.router.navigate(['/books']);
+  }
+
+  updateAddButton() {
+    setTimeout(() => {
+      this.appComponent.addButtonLabel = 'Book';
+      this.appComponent.addButtonRoute = '/book';
+    });
   }
 }
