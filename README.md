@@ -1,6 +1,22 @@
-# BookstoreNg
+#TLDR
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.1.
+This project was part of 5 day training with Java Spring Rest API and Angular JS as the front end client.
+
+Some of the features include books, authors and categories.
+
+## Pictures
+
+![Books](Books.png)
+![Authors](Authors.png)
+![Categories](Categories.png)
+
+## Improvements
+Part of the v2 improvements are the following:
+- Upload file
+- Easy way of adding books
+- Tags
+- Many to Many categories and authors
+- Design
 
 ## Development server
 
