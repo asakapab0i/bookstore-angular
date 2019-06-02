@@ -10,7 +10,7 @@ import { Book } from '../model/book';
 })
 export class BookDetailsComponent implements OnInit {
 
-  book: Book[];
+  book: Book;
 
   constructor(private bookService: BookService,
               private route: ActivatedRoute) { }

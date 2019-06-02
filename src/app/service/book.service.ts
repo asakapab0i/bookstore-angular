@@ -32,7 +32,7 @@ export class BookService {
     return this.http.get<Book[]>(this.bookSearchUrl + term);
   }
 
-  public findById(id: number): Observable<Book[]> {
-    return this.http.get<Book[]>(this.bookUrl + id);
+  public findById(id: number): Observable<Book> {
+    return this.http.get<Book>(this.bookUrl + id);
   }
 }
