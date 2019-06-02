@@ -35,7 +35,7 @@ export class CategoryDetailsComponent implements OnInit {
     });
   }
 
-  getCategoryById(id: number){
+  getCategoryById(id: number) {
     this.categoryService.findById(id).subscribe(data => {
       this.category = data;
     });
