@@ -26,8 +26,8 @@ export class BookService {
     return this.http.get<Book[]>(this.booksUrl);
   }
 
-  public save(book: Book, author: string) {
-    this.bookAddUrl = this.baseUrl + 'book/' + author + '/book/1/category';
+  public save(book: Book, author: string, category: string) {
+    this.bookAddUrl = this.baseUrl + 'book/' + author + '/book/' + category + '/category';
     return this.http.post<Book>(this.bookAddUrl, book);
   }
 
